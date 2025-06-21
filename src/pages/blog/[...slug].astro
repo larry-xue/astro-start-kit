@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import Prose from '../../components/Prose.astro';
+import '../../styles/global.css';
+
+// Generate static paths for all blog posts
+export async function getStaticPaths() {
+  const blogEntries = await getCollection('blog');
+  return blogEntries.map(entry => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
+}
+
+// Get the entry from props
+const { entry } = Astro.props;
+// Render the content using the correct API for Astro v5
+const { Content } = await render(entry);
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{entry.data.title} - Astro Start Kit</title>
+    <meta name="description" content={entry.data.description} />
+  </head>
+  <body class="bg-gray-50 min-h-screen">
+    <header class="bg-white shadow-sm py-4 mb-8">
+      <div class="container mx-auto px-4">
+        <div class="flex justify-between items-center">
+          <h1 class="text-2xl font-bold">
+            <a href="/" class="text-gray-900 hover:text-blue-600">Astro Start Kit</a>
+          </h1>
+          <nav>
+            <a href="/" class="text-gray-600 hover:text-blue-600 ml-4">Home</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="container mx-auto px-4 pb-12">
+      <article class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6 md:p-8">
+        <Prose>
+          <Content />
+        </Prose>
+        
+        <div class="mt-8 pt-6 border-t border-gray-200">
+          <a href="/" class="text-blue-600 hover:text-blue-800 inline-flex items-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+            </svg>
+            Back to Home
+          </a>
+        </div>
+      </article>
+    </main>
+
+    <footer class="bg-gray-100 py-4 mt-8">
+      <div class="container mx-auto px-4 text-center text-gray-600">
+        <p>Built with Astro, Tailwind CSS, Alpine.js, and MDX</p>
+      </div>
+    </footer>
+  </body>
+</html> 

@@ -1,0 +1,55 @@
+---
+title: "MDX Demo Post"
+description: "A demonstration of MDX features in Astro"
+pubDate: 2023-11-10
+---
+
+import AlpineCounter from '../components/AlpineCounter.astro';
+
+# {frontmatter.title}
+
+_Published on {new Date(frontmatter.pubDate).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}_
+
+This is a **MDX** blog post that showcases the power of MDX in Astro.
+
+## Features
+
+- Write markdown with JSX
+- Import and use Astro components
+- Use frontmatter for metadata
+
+## Example Code
+
+```js
+// JavaScript example
+function greet(name) {
+  return `Hello, ${name}!`;
+}
+
+console.log(greet('Astro'));
+```
+
+## Interactive Component
+
+You can even include interactive components like this Alpine.js counter:
+
+<div className="my-4">
+  <AlpineCounter />
+</div>
+
+## Styling with Tailwind
+
+<div className="bg-blue-100 border-l-4 border-blue-500 text-blue-700 p-4 my-4">
+  This box is styled using Tailwind CSS classes directly in the MDX file.
+</div>
+
+<div className="grid grid-cols-2 gap-4 my-4">
+  <div className="bg-green-100 p-4 rounded">First column</div>
+  <div className="bg-purple-100 p-4 rounded">Second column</div>
+</div>
+
+export function MyComponent() {
+  return <p className="text-red-500 font-bold">This text is rendered from a custom React-like component!</p>;
+}
+
+<MyComponent /> 

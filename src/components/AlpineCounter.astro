@@ -1,0 +1,33 @@
+---
+// Alpine.js Counter Component
+// Using x-data to define data and methods
+---
+
+<div 
+  x-data="{ count: 0 }"
+  class="bg-white p-6 rounded-lg shadow-md max-w-sm mx-auto"
+>
+  <h2 class="text-xl font-bold mb-4">Alpine.js Counter</h2>
+  
+  <div class="flex items-center justify-between mb-4">
+    <button 
+      @click="count--" 
+      class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded"
+    >
+      Decrease
+    </button>
+    
+    <span 
+      x-text="count"
+      class="text-2xl font-bold mx-4"
+    ></span>
+    
+    <button 
+      @click="count++" 
+      class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded"
+    >
+      Increase
+    </button>
+  </div>
+</div> 
+ 
