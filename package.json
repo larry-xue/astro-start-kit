@@ -2,6 +2,14 @@
   "name": "astro-start-kit",
   "type": "module",
   "version": "0.0.1",
+  "author": "Larry Xue",
+  "license": "MIT",
+  "description": "A starter kit for Astro with Tailwind CSS, Alpine.js, and MDX",
+  "homepage": "https://larryxue.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/larryxue/astro-start-kit"
+  },
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",

@@ -1,7 +1,7 @@
 # Astro Start Kit
 
 ```sh
-npm create astro@latest -- --template with-tailwindcss
+npm create astro@latest -- --template larry-xue/astro-start-kit
 ```
 
 This project demonstrates the integration of [Astro](https://astro.build) with [Tailwind CSS](https://tailwindcss.com), [Alpine.js](https://alpinejs.dev), and [MDX](https://mdxjs.com).
